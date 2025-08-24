@@ -23,13 +23,16 @@ import { SocketProvider } from "./context/Socket.jsx";
 import { ConversationSocketProvider } from "./context/ConversationSocket.jsx";
 import { AppProvider } from "./context/GlobalContext";
 import {withAuth} from "./hoc/withAuth"
+import { withPublic } from "./hoc/withPublic";
 
 const AuthenticatedUser = withAuth(User);
+
+const ExtendedPublicLayout = withPublic(PublicLayout)
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <PublicLayout />,
+    element: <ExtendedPublicLayout />,
     children: [
       {
         index: true,

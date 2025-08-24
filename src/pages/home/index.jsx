@@ -1,5 +1,6 @@
 import Auth from "@/components/auth";
 import { Button } from "@/components/ui/button";
+import UserProfile from "@/components/userProfile";
 import { useAppStore } from "@/context/GlobalContext";
 import {
   CheckCircle,
@@ -9,6 +10,7 @@ import {
   Zap,
   ArrowRight,
   Target,
+  LogIn,
 } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -54,14 +56,15 @@ export default function Home() {
                   >
                     Features
                   </Link>
-                  <Button
+                  {user ? <UserProfile /> : <Button
                     to={`/user/123`}
                     className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 cursor-pointer"
                     onClick={function () {
                       setShowAuthModal(true);
                     }}>
-                    Get Started
-                  </Button>
+                    <LogIn />
+                    Sign In
+                  </Button>}
                 </div>
               </div>
             </div>

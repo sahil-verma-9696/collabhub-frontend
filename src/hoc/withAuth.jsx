@@ -17,9 +17,9 @@ export function withAuth(Component) {
     useEffect(() => {
       getMe()
     }, [])
-
+      console.log(user)
     if (!user) {
-      return <div>Token is not found</div>
+      return <div>you are not authenticated</div>
     }
 
     return <Component />;
